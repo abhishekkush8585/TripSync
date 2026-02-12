@@ -1,5 +1,12 @@
 package com.tripSync.repository;
 
-public class UserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.tripSync.entity.User;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+	Boolean existsByEmail(String email);
+	
+	User findByEmail(String email);
 }
